@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# tests coverage data
+coverage/
+
+# environmental variables
+.env
+
+# misc
+*.log
+*.tmp
+*~
+.DS_Store
