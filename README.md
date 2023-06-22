@@ -2,6 +2,12 @@
 
 Generating random quotes of Don't Starve character Wilbur.
 
+## Example Quotes
+
+- Ooo!
+- Ooh? Ooae!
+- Ooae Oooh Oaoa! Ooooe.
+
 ## Algorythm
 
 The quotes are generated based on [wiki page](https://dontstarve.fandom.com/wiki/Wilbur/Quotes "Wilbur (Quotes) | Don't Starve Wiki | Fandom").
