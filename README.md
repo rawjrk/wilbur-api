@@ -10,9 +10,10 @@ Generating random quotes of Don't Starve character Wilbur.
 
 ## Planned Features
 
+- **multiple generations** as a separate option for API
 - **client-side** homepage with button to generate new quotes
-- **new random** number generator
-- **seed-based** generation
+- ~~**new random** number generator~~
+- ~~**seed-based** generation~~
 
 ## Algorythm
 
