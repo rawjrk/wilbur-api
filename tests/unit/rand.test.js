@@ -1,4 +1,4 @@
-const { randomNumber, randomBoolean, randomChar } = require("../rand");
+const { randomNumber, randomBoolean, randomChar } = require("../../lib/rand");
 
 const TEST_MIN = 0;
 const TEST_MAX = 10;

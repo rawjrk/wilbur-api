@@ -1,4 +1,4 @@
-const { word, quote } = require("../quote");
+const { word, quote } = require("../../lib/quote");
 
 const WORD_LENGTH = [2, 3, 4, 5];
 const QUOTE_LENGTH = [1, 2, 3, 4, 5, 6];
