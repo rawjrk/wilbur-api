@@ -12,7 +12,9 @@ Generating random quotes of Don't Starve character Wilbur.
 ## Planned Features
 
 - [x] **multiple generations** as a separate option for API
+- [ ] **exceptions** and error handling for invalid API options
 - [ ] **client-side** homepage with button to generate new quotes
+- [ ] **UI** to try out API request/response
 
 ## Algorythm
 
