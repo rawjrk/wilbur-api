@@ -9,9 +9,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  res.send({
-    quote: quote(),
-  });
+  const { qt } = req.query;
+
+  let quantity = parseInt(qt, 10);
+  if (isNaN(quantity) || quantity < 1) {
+    quantity = 1;
+  }
+
+  const quotes = [...Array(quantity)].map(() => quote());
+  const response = {
+    length: quotes.length,
+    quotes,
+  };
+
+  res.send(response);
 });
 
 app.get("*", (req, res) => {

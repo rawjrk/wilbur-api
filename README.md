@@ -5,15 +5,14 @@ Generating random quotes of Don't Starve character Wilbur.
 ## API Endpoints
 
 - `/` home page, currently redirects to `/api`
-- `/api` returns object with randomly generated quote
-  - e.g. `{ "quote": "Oooh Oah." }`
+- `/api` returns object with randomly generated quote(s)
+
+[API documentation](/doc/API.md)
 
 ## Planned Features
 
-- **multiple generations** as a separate option for API
-- **client-side** homepage with button to generate new quotes
-- ~~**new random** number generator~~
-- ~~**seed-based** generation~~
+- [x] **multiple generations** as a separate option for API
+- [ ] **client-side** homepage with button to generate new quotes
 
 ## Algorythm
 
