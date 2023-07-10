@@ -2,38 +2,18 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const { quote } = require("./lib/quote");
+const apiRoutes = require("./features/api/routes");
 
 app.get("/", (req, res) => {
   res.redirect("/api");
 });
 
-app.get("/api", (req, res) => {
-  const { qt } = req.query;
-
-  let quantity = parseInt(qt, 10);
-  if (isNaN(quantity) || quantity < 1) {
-    quantity = 1;
-  }
-
-  const quotes = [...Array(quantity)].map(() => quote());
-  const response = {
-    length: quotes.length,
-    quotes,
-  };
-
-  res.send(response);
-});
+app.use("/api", apiRoutes);
 
 app.get("*", (req, res) => {
   const { url } = req;
 
-  res.status(404).send({
-    timestamp: new Date(),
-    status: 404,
-    error: "Page not found",
-    path: url,
-  });
+  res.status(404).send("Page not found");
 });
 
 app.listen(PORT, () => {
