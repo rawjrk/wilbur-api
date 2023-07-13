@@ -25,12 +25,11 @@ describe("word() function", () => {
       // beginning: always "O"
       // mid part: "o"/"a" x1-3
       // end char: "e"/"h" or none
-      const matcher = wd.match(/^O(o|a){1,3}(e|h)?$/);
-      expect(matcher).not.toBeNull();
+      expect(wd).toMatch(/^O(o|a){1,3}(e|h)?$/);
     });
   });
 
-  test("returns words of each possible length", () => {
+  test("generates words of each possible length", () => {
     WORD_LENGTH.forEach((testLength) => {
       const filtered = wordTestSequence.filter(
         (elem) => elem.length === testLength
@@ -42,24 +41,23 @@ describe("word() function", () => {
 
 describe("quote() function", () => {
   test("returns string", () => {
-    quoteTestSequence.forEach((ph) => {
-      expect(typeof ph).toBe("string");
+    quoteTestSequence.forEach((qt) => {
+      expect(typeof qt).toBe("string");
     });
   });
 
   test("matches pattern", () => {
-    quoteTestSequence.forEach((ph) => {
+    quoteTestSequence.forEach((qt) => {
       const word = "O(o|a){1,3}(e|h)?";
       const separator = "(,|\\.|\\?|!)?";
       const end = "(\\.|\\?|!)";
       const pattern = new RegExp(`^(${word}${separator} ){0,5}${word}${end}$`);
 
-      const matcher = ph.match(pattern);
-      expect(matcher).not.toBeNull();
+      expect(qt).toMatch(pattern);
     });
   });
 
-  test("returns quotes of each possible length", () => {
+  test("generates quotes of each possible length", () => {
     QUOTE_LENGTH.forEach((testLength) => {
       const filtered = quoteTestSequence.filter(
         (elem) => elem.split(" ").length === testLength
