@@ -1,6 +1,6 @@
 {
-  "extends": ["next/core-web-vitals"],
-  "plugins": ["testing-library"],
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["prettier", "testing-library"],
   "overrides": [
     {
       "files": [
