@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# wilbur-api
 
-## Getting Started
+Generating random quotes of Don't Starve character Wilbur.
 
-First, run the development server:
+## Endpoints
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- `/` home page
+- `/api` returns JSON with randomly generated quote(s)
+- `/docs` page with [API documentation](/doc/API.md)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Algorythm
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Following rules described on [wiki page](https://dontstarve.fandom.com/wiki/Wilbur/Quotes "Wilbur (Quotes) | Don't Starve Wiki | Fandom").
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<details>
+<summary>Exact Rules</summary>
+<blockquote>
 
-## Learn More
+The quotes are generated with 1 to 6 "words", each of which contain 2 to 5 characters.
 
-To learn more about Next.js, take a look at the following resources:
+- The first character in each word is always an "O".
+- The next 1 to 3 characters consist of an "o" (70% chance) or an "a".
+- There is a 1/3 chance the word ends there, if not the last character will be either an "e" or an "h" with equal chance.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Between each word, there is a 60% chance that there will only be a space. Otherwise, with equal likelihood, a comma, a period, a question mark or an exclamation mark can be placed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+After all the words, the "sentence" will end with a period, a question mark or an exclamation mark with equal chance for each.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</blockquote>
+</details>
