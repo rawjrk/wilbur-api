@@ -4,6 +4,9 @@ node_modules/
 # tests coverage data
 coverage/
 
+# compiled files
+dist/
+
 # environmental variables
 .env
 
