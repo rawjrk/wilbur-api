@@ -3,7 +3,7 @@ const { quote } = require("../../lib/quote");
 const LIMIT = 256;
 
 module.exports.index = (req, res) => {
-  const { url } = req;
+  const { originalUrl } = req;
   const { qt } = req.query;
 
   let quantity = parseInt(qt, 10);
@@ -16,19 +16,19 @@ module.exports.index = (req, res) => {
     status: 200,
     quotes,
     length: quotes.length,
-    path: url,
+    path: originalUrl,
   };
 
   res.status(200).send(response);
 };
 
 module.exports.notFound = (req, res) => {
-  const { url } = req;
+  const { originalUrl } = req;
 
   res.status(404).send({
     timestamp: new Date(),
     status: 404,
     error: "Page not found",
-    path: url,
+    path: originalUrl,
   });
 };

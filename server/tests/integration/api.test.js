@@ -9,7 +9,7 @@ app.use("/api", apiRoutes);
 describe("testing api routes", () => {
   test("GET /api - success", async () => {
     const { body } = await request(app).get("/api");
-    const { quotes } = body;
+    const { quotes, timestamp } = body;
 
     expect(quotes).toBeDefined();
     expect(quotes instanceof Array).toBe(true);
@@ -19,14 +19,17 @@ describe("testing api routes", () => {
     });
 
     expect(body).toEqual({
-      length: 1,
+      timestamp, // always new date
+      status: 200,
       quotes, // quotes are always random
+      length: 1,
+      path: "/api",
     });
   });
 
   test("GET /api?qt=10 - success", async () => {
     const { body } = await request(app).get("/api?qt=10");
-    const { quotes } = body;
+    const { quotes, timestamp } = body;
 
     expect(quotes).toBeDefined();
     expect(quotes instanceof Array).toBe(true);
@@ -36,8 +39,11 @@ describe("testing api routes", () => {
     });
 
     expect(body).toEqual({
-      length: 10,
+      timestamp, // always new date
+      status: 200,
       quotes, // quotes are always random
+      length: 10,
+      path: "/api?qt=10",
     });
   });
 
@@ -49,7 +55,7 @@ describe("testing api routes", () => {
       timestamp, // always new date
       status: 404,
       error: "Page not found",
-      path: "/invalid",
+      path: "/api/invalid",
     });
   });
 });
