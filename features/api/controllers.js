@@ -3,6 +3,7 @@ const { quote } = require("../../lib/quote");
 const LIMIT = 256;
 
 module.exports.index = (req, res) => {
+  const { url } = req;
   const { qt } = req.query;
 
   let quantity = parseInt(qt, 10);
@@ -11,11 +12,14 @@ module.exports.index = (req, res) => {
 
   const quotes = [...Array(quantity)].map(() => quote());
   const response = {
-    length: quotes.length,
+    timestamp: new Date(),
+    status: 200,
     quotes,
+    length: quotes.length,
+    path: url,
   };
 
-  res.send(response);
+  res.status(200).send(response);
 };
 
 module.exports.notFound = (req, res) => {

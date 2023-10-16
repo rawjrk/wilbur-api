@@ -4,15 +4,16 @@ Generating random quotes of Don't Starve character Wilbur.
 
 ## API Endpoints
 
-- `/` home page, currently redirects to `/api`
+- `/` redirects to `/api`
 - `/api` returns object with randomly generated quote(s)
+- other endpoints return 404 error (more in docs)
 
 [API documentation](/doc/API.md)
 
 ## Planned Features
 
 - [x] **multiple generations** as a separate option for API
-- [ ] **exceptions** and error handling for invalid API options
+- [x] **exceptions** and error handling for invalid API options
 - [ ] **client-side** homepage with button to generate new quotes
 - [ ] **UI** to try out API request/response
 

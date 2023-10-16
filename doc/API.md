@@ -11,8 +11,11 @@ By default API returns 1 quote per request:
 
 ```json
 {
+  "timestamp": "2023-10-10T10:10:10.100Z",
+  "status": 200,
+  "quotes": ["Oooh Oah."],
   "length": 1,
-  "quotes": ["Oooh Oah."]
+  "path": "/api"
 }
 ```
 
@@ -23,7 +26,8 @@ You could get multiple quotes by using `qt` (quantity) option:
 
 ```json
 {
-  "length": 100,
+  "timestamp": "2023-10-10T10:10:10.100Z",
+  "status": 200,
   "quotes": [
     "Oo Ooaoe!",
     "Oooah Oaoo Oah Ooah, Oooo!",
@@ -31,7 +35,9 @@ You could get multiple quotes by using `qt` (quantity) option:
     "Ooo?",
     // and so on...
     "Ooooe Ooaoh. Oaoe Ooh. Oaao?"
-  ]
+  ],
+  "length": 100,
+  "path": "/api?qt=100"
 }
 ```
 
@@ -42,7 +48,26 @@ You could get multiple quotes by using `qt` (quantity) option:
 
 ```json
 {
+  "timestamp": "2023-10-10T10:10:10.100Z",
+  "status": 200,
+  "quotes": ["Ooh Oah Ooh Oo Oooe."],
   "length": 1,
-  "quotes": ["Ooh Oah Ooh Oo Oooe."]
+  "path": "/api?qt=abc"
 }
 ```
+
+**Request:** `GET /wrong`\*<br>
+**Response:**
+
+```json
+{
+  "timestamp": "2023-10-10T10:10:10.100Z",
+  "status": 404,
+  "error": "Page not found",
+  "path": "/wrong"
+}
+```
+
+\* Actually, any end-point except `/` and `/api`.
+
+Requests of types other then `GET` are not allowed. Response is the same as for `/wrong`.
