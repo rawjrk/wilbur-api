@@ -1,30 +1,8 @@
-import { useState } from "react";
+import { useFetch } from "./hooks";
 
 function App() {
-  const [quote, setQuote] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  const handleClick = async () => {
-    try {
-      setError(false);
-      setLoading(true);
-      const response = await fetch("/api");
-      const data = await response.json();
-
-      setTimeout(() => {
-        setQuote(data.quotes[0]);
-        setLoading(false);
-      }, 3000);
-    } catch (err) {
-      console.error(err);
-
-      setTimeout(() => {
-        setError(true);
-        setLoading(false);
-      }, 3000);
-    }
-  };
+  const [generate, data, loading, error] = useFetch("/api", { quotes: [null] });
+  const [quote] = data.quotes;
 
   return (
     <>
@@ -38,7 +16,7 @@ function App() {
       ) : (
         <p>🐒 [empty]</p>
       )}
-      <button onClick={handleClick}>Generate!</button>
+      <button onClick={generate}>Generate!</button>
     </>
   );
 }
