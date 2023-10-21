@@ -1,8 +1,9 @@
 import styles from "./Monke.module.css";
-import monkeStill from "../assets/images/monke-still.png";
-import monkeThink from "../assets/images/monke-think.png";
-import monkeTalk from "../assets/images/monke-talk.png";
-import monkeError from "../assets/images/monke-error.png";
+
+import monkeStill from "../assets/images/face/still.png";
+import monkeThink from "../assets/images/face/think.png";
+import monkeTalk from "../assets/images/face/talk.png";
+import monkeError from "../assets/images/face/error.png";
 
 function Monke({ status = "still", quote = "", generate = (f) => f }) {
   let imgSrc;
@@ -26,12 +27,14 @@ function Monke({ status = "still", quote = "", generate = (f) => f }) {
     <div className={styles.monke}>
       <img src={imgSrc} alt="Monke face" />
 
-      <p>{status === "talk" ? quote : ""}</p>
-      <p className={styles.error}>
-        {status === "error" ? "ERROR: MONKE MAD NO RESPONSE!" : ""}
-      </p>
+      <div>
+        <p>{status === "talk" ? `- ${quote}` : ""}</p>
+        <p className={styles.error}>
+          {status === "error" ? "ERROR: MONKE MAD NO RESPONSE!" : ""}
+        </p>
+      </div>
 
-      <button onClick={generate}>Generate</button>
+      <button onClick={generate}>Generate Quote</button>
     </div>
   );
 }

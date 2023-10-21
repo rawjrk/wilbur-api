@@ -1,36 +1,28 @@
 .monke {
   position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  /* border: 1px solid blue; */
+  max-width: 415px;
+  width: 80vw;
+  display: grid;
+  justify-items: center;
 }
 
 .monke img {
-  width: 30rem;
-  /* border: 1px solid blue; */
+  width: 100%;
+}
+
+.monke p {
+  font-size: 2rem;
+  text-align: center;
+  font-style: italic;
 }
 
 .monke p.error {
   color: #a00000;
 }
 
-.monke p {
-  position: absolute;
-  top: 26rem;
-  width: 20rem;
-  font-size: 2rem;
-  text-align: center;
-  font-style: italic;
-}
-
 .monke button {
-  font-size: 20px;
-  position: relative;
-  appearance: button;
-  display: inline-block;
+  width: 13rem;
+
   border: solid transparent;
   border-radius: 1rem;
   font-size: 1.2rem;
@@ -40,6 +32,7 @@
   padding: 0.7rem 1rem 0.5rem 1rem;
   background-color: lightgrey;
   color: black;
+  appearance: button;
   cursor: pointer;
 }
 
