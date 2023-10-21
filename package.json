@@ -15,6 +15,9 @@
   ],
   "author": "RawJrk",
   "license": "MIT",
+  "engines": {
+    "node": "20.8.0"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },
